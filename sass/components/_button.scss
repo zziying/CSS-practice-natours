@@ -2,7 +2,7 @@
 .btn {
 
     /* pesudo class: special state when the button is a archor tag */
-    &:link, &:visited {
+    &, &:link, &:visited {
         text-transform: uppercase;
         text-decoration: none;
         padding: 1.5rem 4rem;
@@ -10,6 +10,10 @@
         border-radius: 10rem;
         transition: all 0.3s;
         position: relative;
+
+        // change for the button element
+        border: none;
+        cursor: pointer;
     }
 
     /* In css, the y axis moves from up to down, and from down to up, we use negative */
@@ -24,9 +28,10 @@
         }
     }
 
-    &:active {
+    &:active, &:focus {
         transform: translateY(-1px);
         box-shadow: 0 0.5rem 1rem rgba($color-black,.2);
+        outline: none;
     }
 
     &--white {
@@ -36,6 +41,11 @@
         &::after {
             background: white;
         }
+    }
+
+    &--green {
+        background-color: $color-primary;
+        color: $color-white;
     }
 
     /* we want an element looks exactly the same as the button */
